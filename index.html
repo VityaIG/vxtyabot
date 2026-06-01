@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Error</title>
+    <style>
+        body {
+            background-color: red;
+            color: black;
+            font-size: small;
+            font-family: monospace; /* Fits the tech/error aesthetic perfectly */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="error-display">Initializing...</div>
+
+    <script>
+        // Array of randomized error messages
+        const errorMessages = [
+            "ERROR ERROR",
+            "Bootlooping...",
+            "FATAL EXCEPTION",
+            "Kernel Panic: VFS: Unable to mount root fs",
+            "System Crash Detected",
+            "Data Corrupted",
+            "Rebooting in 3... 2... 1...",
+            "ACCESS_DENIED",
+            "HARDWARE_FAILURE",
+            "CORE_DUMP_FAILED"
+        ];
+
+        function updateErrorText() {
+            const display = document.getElementById('error-display');
+            // Pick a random message from the array
+            const randomIndex = Math.floor(Math.random() * errorMessages.length);
+            display.textContent = errorMessages[randomIndex];
+        }
+
+        // Run immediately on load
+        updateErrorText();
+
+        // Change the text every 500 milliseconds (0.5 seconds)
+        setInterval(updateErrorText, 500);
+    </script>
+</body>
+</html>
